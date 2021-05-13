@@ -35,7 +35,7 @@ class Recipe {
     convenience init() {
         let reviewUserID = Auth.auth().currentUser?.uid ?? ""
         let reviewUserEmail = Auth.auth().currentUser?.email ?? ""
-        self.init (name: "", ingredients: "", rating: 0, recipeUserID: recipeUserID, instructions: "", documentID: "", saved: false)
+        self.init (name: "", ingredients: "", rating: 0, recipeUserID: "", instructions: "", documentID: "", saved: false)
     }
     
     convenience init(dictionary: [String: Any]) {
@@ -58,8 +58,15 @@ class Recipe {
             print("ERROR: Could not save data")
             return completion(false)
         }
+        
+        
+        
 //        self.postingUserID = postingUserID
-        self.recipeUserID = recipeUserID
+//        self.recipeUserID = recipeUserID
+        
+        
+        
+        
         // Create the dictionary representing data we want to save
         let dataToSave: [String: Any] = self.dictionary
         // if we have a saved record, we'll have an ID, otherwise .addDocument will create one.

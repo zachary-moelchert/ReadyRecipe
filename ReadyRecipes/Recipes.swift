@@ -10,7 +10,7 @@ import Firebase
 
 class Recipes {
     
-    var savedRecipeArray: [Recipe] = []
+    var recipeArray: [Recipe] = []
     var db: Firestore!
 
     init() {
@@ -26,13 +26,13 @@ class Recipes {
                 print("ERROR: adding the snapshot listener \(error?.localizedDescription)")
                 return completed()
             }
-            self.savedRecipeArray = [] // clean out existing spotArray since new data will load
+            self.recipeArray = [] // clean out existing spotArray since new data will load
             // there are queryShapshot!.documents.count documents in the snapshot
             for document in querySnapshot!.documents {
                 // make sure you have a dictionary initializer
                 let recipe = Recipe(dictionary: document.data())
                 recipe.documentID = document.documentID
-                self.savedRecipeArray.append(recipe)
+                self.recipeArray.append(recipe)
             }
             completed()
         }
