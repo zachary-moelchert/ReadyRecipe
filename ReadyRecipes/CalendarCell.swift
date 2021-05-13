@@ -6,23 +6,35 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CalendarCell: UITableViewCell {
-
+    
     @IBOutlet weak var dayOfWeekLabel: UILabel!
     @IBOutlet weak var recipeNameLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var photoImageView: UIImageView!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var recipe: Recipe! {
+        didSet {
+            dayOfWeekLabel.text = "Sunday"
+            recipeNameLabel.text = recipe.name
+            
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    var photo: Photo! {
+        didSet {
+            if let url = URL(string: self.photo.photoURL) {
+                self.photoImageView.sd_imageTransition = .fade
+                self.photoImageView.sd_imageTransition?.duration = 0.2
+                self.photoImageView.sd_setImage(with: url)
+            } else {
+                print("URL Didn't work \(self.photo.photoURL)")
+                self.photo.loadImage(recipe: self.recipe) { (success) in
+                    self.photo.saveData(recipe: self.recipe) { (success) in
+                        print("Image updated with URL \(self.photo.photoURL)")
+                    }
+                }
+            }
+        }
     }
-
 }
