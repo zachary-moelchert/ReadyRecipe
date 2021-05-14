@@ -24,7 +24,7 @@ class PhotoViewController: UIViewController {
             return
         }
         
-        if photo == nil {
+        guard photo != nil else {
             photo = Photo()
         }
         
