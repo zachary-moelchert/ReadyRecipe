@@ -25,7 +25,8 @@ class PhotoViewController: UIViewController {
         }
         
         guard photo != nil else {
-            photo = Photo()
+            print("ERROR: No photo passed to PhotoViewController.swift")
+            return
         }
         
         updateUserInterface()
