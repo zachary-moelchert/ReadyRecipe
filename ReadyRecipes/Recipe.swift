@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-class Recipe {
+class Recipe: Codable {
     var name: String
     var ingredients: String
     var instructions: String
@@ -17,6 +17,7 @@ class Recipe {
     var documentID: String
     var rating: Int
     var saved: Bool
+    
     
     var dictionary: [String: Any] {
         return ["name": name, "ingredients": ingredients, "instructions": instructions, "rating": rating, "recipeUserID": recipeUserID, "saved": saved]

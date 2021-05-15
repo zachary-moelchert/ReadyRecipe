@@ -1,25 +1,24 @@
 //
-//  RecipeDetailViewController.swift
+//  CalendarDetailViewController.swift
 //  ReadyRecipes
 //
-//  Created by Zachary Moelchert on 5/8/21.
+//  Created by Zachary Moelchert on 5/14/21.
 //
 
 import UIKit
 
-class RecipeDetailViewController: UIViewController {
+class CalendarDetailViewController: UIViewController {
 
-    
-    @IBOutlet weak var recipeNameTextView: UITextField!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ingredientsTextView: UITextView!
+    @IBOutlet weak var addRecipeButton: UIBarButtonItem!
     @IBOutlet weak var instructionsTextView: UITextView!
-    @IBOutlet weak var addPhotoButton: UIButton!
-    
+
     var recipe: Recipe!
-    var weeklyDictionary: [String: Recipe] = [:]
     var weekDay: String!
-    
+    var weeklyDictionary: [String: Recipe] = [:]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,21 +37,25 @@ class RecipeDetailViewController: UIViewController {
     }
     
     func updateUserInterface() {
-        recipeNameTextView?.text = ""
+//        self.recipe = weeklyDictionary[weekDay] ?? Recipe()
+        nameLabel?.text = recipe.name
         ingredientsTextView?.text = recipe.ingredients
         instructionsTextView?.text = recipe.instructions
     }
     
     func updateFromUserInterface() {
-        recipe.name = recipeNameTextView.text!
+        recipe.name = nameLabel.text!
         recipe.ingredients = ingredientsTextView.text!
         recipe.instructions = instructionsTextView.text!
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        updateFromUserInterface()
+        let destination = segue.destination as! SavedRecipesListViewController
+        destination.weekDay = weekDay
+        destination.weeklyDictionary = weeklyDictionary
     }
+    
+    
     
     // Save button pressed function
     
@@ -65,21 +68,5 @@ class RecipeDetailViewController: UIViewController {
 //            self.oneButtonAlert(title: "Save Failed", message: "For some reason, the data would not save to the cloud.")
 //        }
 //    }
-
-    
-    
-    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
-        let isPresentingInAddMode = presentingViewController is UINavigationController
-        if isPresentingInAddMode {
-            dismiss(animated: true, completion: nil)
-        } else {
-            navigationController?.popViewController(animated: true)
-        }
-    }
-
-    @IBAction func addPhotoPressed(_ sender: UIButton) {
-    }
-    
-
 
 }

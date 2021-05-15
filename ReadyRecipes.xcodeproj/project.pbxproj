@@ -20,6 +20,8 @@
 		D18C9A82264713AE000C3BFE /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C9A81264713AE000C3BFE /* CalendarViewController.swift */; };
 		D18C9A8626471435000C3BFE /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C9A8526471435000C3BFE /* CalendarCell.swift */; };
 		D1958591264DA7AB00ECE939 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1958590264DA7AB00ECE939 /* RecipeDetailViewController.swift */; };
+		D19585EE264EBD0E00ECE939 /* CalendarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19585ED264EBD0E00ECE939 /* CalendarDetailViewController.swift */; };
+		D1958612264EBED400ECE939 /* SavedRecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1958611264EBED400ECE939 /* SavedRecipeDetailViewController.swift */; };
 		D1D9297A2646EFFC009C500F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D929792646EFFC009C500F /* AppDelegate.swift */; };
 		D1D9297C2646EFFC009C500F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9297B2646EFFC009C500F /* SceneDelegate.swift */; };
 		D1D9297E2646EFFC009C500F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9297D2646EFFC009C500F /* LoginViewController.swift */; };
@@ -44,6 +46,8 @@
 		D18C9A81264713AE000C3BFE /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		D18C9A8526471435000C3BFE /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		D1958590264DA7AB00ECE939 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		D19585ED264EBD0E00ECE939 /* CalendarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailViewController.swift; sourceTree = "<group>"; };
+		D1958611264EBED400ECE939 /* SavedRecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeDetailViewController.swift; sourceTree = "<group>"; };
 		D1D929762646EFFC009C500F /* ReadyRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadyRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D929792646EFFC009C500F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1D9297B2646EFFC009C500F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,15 +114,17 @@
 				D1D9297B2646EFFC009C500F /* SceneDelegate.swift */,
 				D18C9A2326470EC5000C3BFE /* Recipe.swift */,
 				D13754932648AAB9001B00B9 /* Recipes.swift */,
+				D18B9D42264AF823000C7A87 /* RecipeCalendar.swift */,
 				D13754732648A964001B00B9 /* Photo.swift */,
 				D18B9D48264B0C5B000C7A87 /* WelcomeViewController.swift */,
-				D18B9D42264AF823000C7A87 /* RecipeCalendar.swift */,
 				D1D9297D2646EFFC009C500F /* LoginViewController.swift */,
 				D18C99FA26470669000C3BFE /* RecipeListViewController.swift */,
 				D18C9A432647123E000C3BFE /* RecipeListCell.swift */,
 				D1958590264DA7AB00ECE939 /* RecipeDetailViewController.swift */,
 				D18C9A1F26470D72000C3BFE /* SavedRecipesListViewController.swift */,
+				D1958611264EBED400ECE939 /* SavedRecipeDetailViewController.swift */,
 				D18C9A81264713AE000C3BFE /* CalendarViewController.swift */,
+				D19585ED264EBD0E00ECE939 /* CalendarDetailViewController.swift */,
 				D18C9A8526471435000C3BFE /* CalendarCell.swift */,
 				D13754702648A638001B00B9 /* PhotoViewController.swift */,
 				D1D9297F2646EFFC009C500F /* Main.storyboard */,
@@ -271,11 +277,13 @@
 				D18C9A82264713AE000C3BFE /* CalendarViewController.swift in Sources */,
 				D18B9D49264B0C5B000C7A87 /* WelcomeViewController.swift in Sources */,
 				D1958591264DA7AB00ECE939 /* RecipeDetailViewController.swift in Sources */,
+				D1958612264EBED400ECE939 /* SavedRecipeDetailViewController.swift in Sources */,
 				D18C9A2026470D73000C3BFE /* SavedRecipesListViewController.swift in Sources */,
 				D1D9297A2646EFFC009C500F /* AppDelegate.swift in Sources */,
 				D1D9297C2646EFFC009C500F /* SceneDelegate.swift in Sources */,
 				D13754942648AAB9001B00B9 /* Recipes.swift in Sources */,
 				D18C9A442647123E000C3BFE /* RecipeListCell.swift in Sources */,
+				D19585EE264EBD0E00ECE939 /* CalendarDetailViewController.swift in Sources */,
 				D18C9A8626471435000C3BFE /* CalendarCell.swift in Sources */,
 				D13754712648A638001B00B9 /* PhotoViewController.swift in Sources */,
 			);

@@ -14,6 +14,8 @@ class CalendarViewController: UIViewController {
     
     var weeklyRecipeSchedule: [Recipe] = []
     var recipes: Recipes!
+    var weekDay = ""
+    var weeklyDictionary: [String: Recipe] = [:]
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,6 +29,37 @@ class CalendarViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! CalendarDetailViewController
+        let selectedIndexPath = tableView.indexPathForSelectedRow!
+        destination.weeklyDictionary = weeklyDictionary
+       
+        switch selectedIndexPath {
+        case IndexPath(index: 0):
+            self.weekDay = daysOfTheWeek[0]
+            destination.weekDay = weekDay
+        case IndexPath(index: 1):
+            self.weekDay = daysOfTheWeek[1]
+            destination.weekDay = weekDay
+        case IndexPath(index: 2):
+            self.weekDay = daysOfTheWeek[2]
+            destination.weekDay = weekDay
+        case IndexPath(index: 3):
+            self.weekDay = daysOfTheWeek[3]
+            destination.weekDay = weekDay
+        case IndexPath(index: 4):
+            self.weekDay = daysOfTheWeek[4]
+            destination.weekDay = weekDay
+        case IndexPath(index: 5):
+            self.weekDay = daysOfTheWeek[5]
+            destination.weekDay = weekDay
+        case IndexPath(index: 6):
+            self.weekDay = daysOfTheWeek[6]
+            destination.weekDay = weekDay
+        default:
+            print("ERROR: preparing for segue and assigning day of the week")
+//            destination.weekDay = "Sunday"
+        }
+        
         
     }
 

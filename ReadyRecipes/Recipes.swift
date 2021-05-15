@@ -12,6 +12,9 @@ class Recipes {
     
     var recipeArray: [Recipe] = []
     var db: Firestore!
+    
+    var weeklyDictionary: [String: Recipe] = [:]
+    
 
     init() {
         db = Firestore.firestore()

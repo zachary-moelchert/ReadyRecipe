@@ -258,10 +258,10 @@
             </objects>
             <point key="canvasLocation" x="2773.5999999999999" y="797.45127436281871"/>
         </scene>
-        <!--Recipe Detail View Controller-->
+        <!--Calendar Detail View Controller-->
         <scene sceneID="tQt-Dw-heB">
             <objects>
-                <viewController id="Rzn-sd-Nd2" customClass="RecipeDetailViewController" customModule="ReadyRecipes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Rzn-sd-Nd2" customClass="CalendarDetailViewController" customModule="ReadyRecipes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1jt-uj-Qxl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -281,13 +281,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iK1-S6-oGd">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="List ingredients here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iK1-S6-oGd">
                                 <rect key="frame" x="16" y="408" width="343" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="kj2-Bn-G0q"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -310,13 +309,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="twZ-8Z-0c0">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="List instructions here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="twZ-8Z-0c0">
                                 <rect key="frame" x="16" y="561.5" width="343" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Ul2-0I-dvg"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -346,10 +344,17 @@
                     <navigationItem key="navigationItem" id="cAo-JC-U7P">
                         <barButtonItem key="rightBarButtonItem" title="Add Recipe" id="LAI-cP-UP8">
                             <connections>
-                                <segue destination="gvD-pk-QiE" kind="show" id="VBz-gr-DK7"/>
+                                <segue destination="fyR-Fe-veE" kind="show" id="bXO-cA-XzB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addRecipeButton" destination="LAI-cP-UP8" id="ide-pn-D7X"/>
+                        <outlet property="ingredientsTextView" destination="iK1-S6-oGd" id="hXV-AT-r71"/>
+                        <outlet property="instructionsTextView" destination="twZ-8Z-0c0" id="BfW-6T-rjg"/>
+                        <outlet property="nameLabel" destination="2y0-RP-E8n" id="7k2-V7-SVV"/>
+                        <outlet property="photoImageView" destination="tL4-pE-Wsd" id="Kp0-EU-Llp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVp-Yf-svM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -371,7 +376,7 @@
                                         <rect key="frame" x="16" y="620" width="343" height="32"/>
                                         <segments>
                                             <segment title="A-Z"/>
-                                            <segment title="Rating"/>
+                                            <segment title="Z-A"/>
                                         </segments>
                                     </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cbi-jT-QwM">
@@ -483,25 +488,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="qYK-PC-iQ1">
-                                <rect key="frame" x="16" y="140" width="343" height="214.5"/>
+                                <rect key="frame" x="16" y="140" width="343" height="214"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="qYK-PC-iQ1" secondAttribute="height" multiplier="187:117" id="ZUf-hk-PGa"/>
+                                    <constraint firstAttribute="width" secondItem="qYK-PC-iQ1" secondAttribute="height" multiplier="343:214" id="rl8-VO-nvX"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Name Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bVx-FG-4kD">
-                                <rect key="frame" x="16" y="60" width="343" height="64"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bVx-FG-4kD">
+                                <rect key="frame" x="16" y="60" width="110" height="56.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="lfB-Ra-rOd"/>
+                                    <constraint firstAttribute="height" constant="56.5" id="PT7-0n-G5F"/>
+                                    <constraint firstAttribute="width" constant="110" id="wvZ-OZ-pXY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MyanmarSangamMN-Bold" family="Myanmar Sangam MN" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eOT-uq-r9m">
-                                <rect key="frame" x="16" y="408" width="343" height="100"/>
+                                <rect key="frame" x="16" y="407.5" width="343" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="CkP-gi-NqA"/>
+                                    <constraint firstAttribute="height" constant="100" id="dcf-qP-8FT"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -509,39 +515,38 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRK-tX-ACl">
-                                <rect key="frame" x="16" y="370.5" width="155" height="21.5"/>
+                                <rect key="frame" x="16" y="370" width="155" height="21.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="155" id="Rzj-t7-rnc"/>
+                                    <constraint firstAttribute="width" constant="155" id="RKP-KZ-ZMQ"/>
+                                    <constraint firstAttribute="height" constant="21.5" id="biF-i0-fe5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0F-WO-BQf">
-                                <rect key="frame" x="16" y="524" width="155" height="21.5"/>
+                                <rect key="frame" x="16" y="523.5" width="155" height="21.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="155" id="Fc2-A0-fr7"/>
+                                    <constraint firstAttribute="width" constant="155" id="AC9-4L-l82"/>
+                                    <constraint firstAttribute="height" constant="21.5" id="Jiw-Mm-m72"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ibo-Je-ybM">
-                                <rect key="frame" x="16" y="561.5" width="343" height="100"/>
+                                <rect key="frame" x="16" y="561" width="343" height="98"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="jWt-aa-3P7"/>
-                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLm-sb-xeJ">
-                                <rect key="frame" x="287" y="370.5" width="72" height="30"/>
+                                <rect key="frame" x="287" y="370" width="72" height="29.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="CXV-Hg-34N"/>
-                                    <constraint firstAttribute="width" constant="72" id="pgx-na-Kus"/>
+                                    <constraint firstAttribute="width" constant="72" id="8Zv-lg-1Nu"/>
+                                    <constraint firstAttribute="height" constant="30" id="U5E-8y-Czd"/>
                                 </constraints>
                                 <state key="normal" title="Add Photo"/>
                                 <connections>
@@ -549,28 +554,41 @@
                                     <segue destination="QYb-Wb-EJz" kind="presentation" modalPresentationStyle="fullScreen" id="Qu9-hp-OVx"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sJy-o3-olb">
+                                <rect key="frame" x="142" y="64" width="217" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="VLK-N2-GfR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iBx-DX-6z6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bVx-FG-4kD" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="DwN-Nd-lPw"/>
-                            <constraint firstItem="eOT-uq-r9m" firstAttribute="top" secondItem="QRK-tX-ACl" secondAttribute="bottom" constant="16" id="GPG-Se-n0s"/>
-                            <constraint firstItem="iBx-DX-6z6" firstAttribute="trailing" secondItem="eOT-uq-r9m" secondAttribute="trailing" constant="16" id="KW3-N7-1x0"/>
-                            <constraint firstItem="Ibo-Je-ybM" firstAttribute="top" secondItem="m0F-WO-BQf" secondAttribute="bottom" constant="16" id="KZY-Sq-k9u"/>
-                            <constraint firstItem="qYK-PC-iQ1" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="LXJ-Ve-bVF"/>
-                            <constraint firstItem="qYK-PC-iQ1" firstAttribute="top" secondItem="bVx-FG-4kD" secondAttribute="bottom" constant="16" id="QUp-4d-zW9"/>
-                            <constraint firstItem="QRK-tX-ACl" firstAttribute="top" secondItem="qYK-PC-iQ1" secondAttribute="bottom" constant="16" id="RPj-as-9UD"/>
-                            <constraint firstItem="bVx-FG-4kD" firstAttribute="top" secondItem="iBx-DX-6z6" secondAttribute="top" constant="16" id="SSG-xa-h7i"/>
-                            <constraint firstItem="m0F-WO-BQf" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="UW7-bJ-jZ6"/>
-                            <constraint firstItem="Ibo-Je-ybM" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="Vh9-6J-cyb"/>
-                            <constraint firstItem="eOT-uq-r9m" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="Wmo-A3-27W"/>
-                            <constraint firstItem="iBx-DX-6z6" firstAttribute="trailing" secondItem="bLm-sb-xeJ" secondAttribute="trailing" constant="16" id="XFf-vL-d8s"/>
-                            <constraint firstItem="QRK-tX-ACl" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="Xem-hS-SWq"/>
-                            <constraint firstItem="iBx-DX-6z6" firstAttribute="trailing" secondItem="qYK-PC-iQ1" secondAttribute="trailing" constant="16" id="bof-o4-BIi"/>
-                            <constraint firstItem="iBx-DX-6z6" firstAttribute="trailing" secondItem="Ibo-Je-ybM" secondAttribute="trailing" constant="16" id="i0G-vb-aTg"/>
-                            <constraint firstItem="bLm-sb-xeJ" firstAttribute="top" secondItem="qYK-PC-iQ1" secondAttribute="bottom" constant="16" id="qmc-f0-eL6"/>
-                            <constraint firstItem="m0F-WO-BQf" firstAttribute="top" secondItem="eOT-uq-r9m" secondAttribute="bottom" constant="16" id="sQ8-Tz-WVC"/>
-                            <constraint firstItem="iBx-DX-6z6" firstAttribute="trailing" secondItem="bVx-FG-4kD" secondAttribute="trailing" constant="16" id="vFg-ug-znh"/>
+                            <constraint firstItem="eOT-uq-r9m" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="0vg-YA-HOR"/>
+                            <constraint firstItem="eOT-uq-r9m" firstAttribute="top" secondItem="QRK-tX-ACl" secondAttribute="bottom" constant="16" id="1Rv-wk-INj"/>
+                            <constraint firstItem="Ibo-Je-ybM" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="3E6-pK-3Pi"/>
+                            <constraint firstItem="sJy-o3-olb" firstAttribute="top" secondItem="iBx-DX-6z6" secondAttribute="top" constant="20" id="5Df-ob-c1h"/>
+                            <constraint firstItem="iBx-DX-6z6" firstAttribute="trailing" secondItem="Ibo-Je-ybM" secondAttribute="trailing" constant="16" id="CqM-nl-19d"/>
+                            <constraint firstItem="iBx-DX-6z6" firstAttribute="trailing" secondItem="bLm-sb-xeJ" secondAttribute="trailing" constant="16" id="Fph-p2-6cY"/>
+                            <constraint firstItem="sJy-o3-olb" firstAttribute="leading" secondItem="bVx-FG-4kD" secondAttribute="trailing" constant="16" id="I0g-bW-UsK"/>
+                            <constraint firstItem="bLm-sb-xeJ" firstAttribute="leading" secondItem="QRK-tX-ACl" secondAttribute="trailing" constant="116" id="ITI-9Z-z6W"/>
+                            <constraint firstItem="qYK-PC-iQ1" firstAttribute="top" secondItem="bVx-FG-4kD" secondAttribute="bottom" constant="23.5" id="Ifv-k0-l8P"/>
+                            <constraint firstItem="iBx-DX-6z6" firstAttribute="bottom" secondItem="Ibo-Je-ybM" secondAttribute="bottom" constant="8" id="MBG-QP-aFn"/>
+                            <constraint firstItem="eOT-uq-r9m" firstAttribute="top" secondItem="bLm-sb-xeJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Q5U-vm-Jds"/>
+                            <constraint firstItem="iBx-DX-6z6" firstAttribute="trailing" secondItem="eOT-uq-r9m" secondAttribute="trailing" constant="16" id="QAR-Bk-qIh"/>
+                            <constraint firstItem="m0F-WO-BQf" firstAttribute="top" secondItem="eOT-uq-r9m" secondAttribute="bottom" constant="16" id="RNq-ch-KGD"/>
+                            <constraint firstItem="iBx-DX-6z6" firstAttribute="trailing" secondItem="sJy-o3-olb" secondAttribute="trailing" constant="16" id="VDk-Sm-5tK"/>
+                            <constraint firstItem="m0F-WO-BQf" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="Wtw-ea-zc6"/>
+                            <constraint firstItem="bVx-FG-4kD" firstAttribute="top" secondItem="iBx-DX-6z6" secondAttribute="top" constant="16" id="YcR-5z-daw"/>
+                            <constraint firstItem="QRK-tX-ACl" firstAttribute="top" secondItem="qYK-PC-iQ1" secondAttribute="bottom" constant="16" id="aVk-eX-jTa"/>
+                            <constraint firstItem="bVx-FG-4kD" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="dPG-Lw-95u"/>
+                            <constraint firstItem="QRK-tX-ACl" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="gGM-7m-AOj"/>
+                            <constraint firstItem="Ibo-Je-ybM" firstAttribute="top" secondItem="m0F-WO-BQf" secondAttribute="bottom" constant="16" id="gSS-Ky-3OH"/>
+                            <constraint firstItem="iBx-DX-6z6" firstAttribute="trailing" secondItem="qYK-PC-iQ1" secondAttribute="trailing" constant="16" id="nKf-EU-GeV"/>
+                            <constraint firstItem="bLm-sb-xeJ" firstAttribute="top" secondItem="qYK-PC-iQ1" secondAttribute="bottom" constant="16" id="pRf-H3-atW"/>
+                            <constraint firstItem="qYK-PC-iQ1" firstAttribute="leading" secondItem="iBx-DX-6z6" secondAttribute="leading" constant="16" id="yNJ-gV-DLF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1yF-Zj-Jmj">
@@ -579,19 +597,24 @@
                                 <action selector="cancelButtonPressed:" destination="fRw-MW-C3C" id="apk-HZ-HT1"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save Recipe" id="xpH-q9-Fer"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save Recipe" id="xpH-q9-Fer">
+                            <connections>
+                                <segue destination="MwC-1K-NZ9" kind="unwind" unwindAction="undwindFromRecipeDetailWithSegue:" id="iMh-S3-99V"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addPhotoButton" destination="bLm-sb-xeJ" id="fhR-tN-zFj"/>
                         <outlet property="imageView" destination="qYK-PC-iQ1" id="6VQ-C8-sOc"/>
                         <outlet property="ingredientsTextView" destination="eOT-uq-r9m" id="LOP-IQ-hzQ"/>
                         <outlet property="instructionsTextView" destination="Ibo-Je-ybM" id="cQ7-79-ZkF"/>
-                        <outlet property="nameLabel" destination="bVx-FG-4kD" id="Cvh-ag-IdP"/>
+                        <outlet property="recipeNameTextView" destination="sJy-o3-olb" id="reT-nO-fPl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vWw-2R-hd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="MwC-1K-NZ9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4313" y="1841"/>
+            <point key="canvasLocation" x="4312.8000000000002" y="1840.0299850074964"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="qGN-61-y2B">
@@ -684,92 +707,10 @@
             </objects>
             <point key="canvasLocation" x="5279" y="1583"/>
         </scene>
-        <!--Saved Recipes List View Controller-->
-        <scene sceneID="NTA-Bi-KE5">
-            <objects>
-                <viewController id="gvD-pk-QiE" customClass="SavedRecipesListViewController" customModule="ReadyRecipes" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Fga-U7-CY8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" id="zHK-IS-arS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="v2V-Ib-RkL">
-                                        <rect key="frame" x="16" y="620" width="343" height="32"/>
-                                        <segments>
-                                            <segment title="A-Z"/>
-                                            <segment title="Rating"/>
-                                        </segments>
-                                    </segmentedControl>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nMu-M5-tb3">
-                                        <rect key="frame" x="0.0" y="44" width="375" height="568"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SavedRecipeCell" rowHeight="80" id="3jh-7b-dIf">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3jh-7b-dIf" id="VqD-31-I0N">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="QmC-rf-Lun">
-                                                            <rect key="frame" x="20" y="6" width="86.5" height="68"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="QmC-rf-Lun" secondAttribute="height" multiplier="88:69" id="juZ-Vw-9Q7"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food Name Here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s44-v2-J7t">
-                                                            <rect key="frame" x="133" y="11" width="261" height="58"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="22"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="QmC-rf-Lun" firstAttribute="centerY" secondItem="VqD-31-I0N" secondAttribute="centerY" id="1t2-vT-Fub"/>
-                                                        <constraint firstItem="QmC-rf-Lun" firstAttribute="top" secondItem="VqD-31-I0N" secondAttribute="topMargin" constant="-5" id="WSB-CM-6h3"/>
-                                                        <constraint firstItem="QmC-rf-Lun" firstAttribute="leading" secondItem="VqD-31-I0N" secondAttribute="leading" constant="20" symbolic="YES" id="m0o-iD-sj8"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <segue destination="5M7-71-veF" kind="show" id="rL5-m3-7iB"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                </subviews>
-                                <viewLayoutGuide key="safeArea" id="AJI-i1-Zcm"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="AJI-i1-Zcm" firstAttribute="trailing" secondItem="v2V-Ib-RkL" secondAttribute="trailing" constant="16" id="KBd-rU-tsJ"/>
-                                    <constraint firstItem="AJI-i1-Zcm" firstAttribute="bottom" secondItem="v2V-Ib-RkL" secondAttribute="bottom" constant="16" id="ew9-ps-Y7a"/>
-                                    <constraint firstItem="v2V-Ib-RkL" firstAttribute="top" secondItem="nMu-M5-tb3" secondAttribute="bottom" constant="8" id="kvF-s3-wyJ"/>
-                                    <constraint firstItem="nMu-M5-tb3" firstAttribute="top" secondItem="AJI-i1-Zcm" secondAttribute="top" id="mIy-AR-RGB"/>
-                                    <constraint firstItem="nMu-M5-tb3" firstAttribute="leading" secondItem="AJI-i1-Zcm" secondAttribute="leading" id="vH5-3O-YEa"/>
-                                    <constraint firstItem="nMu-M5-tb3" firstAttribute="trailing" secondItem="AJI-i1-Zcm" secondAttribute="trailing" id="xpT-K9-jik"/>
-                                    <constraint firstItem="v2V-Ib-RkL" firstAttribute="leading" secondItem="AJI-i1-Zcm" secondAttribute="leading" constant="16" id="xwu-SW-yiR"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="e71-Wv-FP7"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="5bh-sq-teP"/>
-                    <connections>
-                        <outlet property="tableView" destination="nMu-M5-tb3" id="7MH-H2-vFF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cbQ-9x-tWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4998" y="80"/>
-        </scene>
-        <!--Recipe Detail View Controller-->
+        <!--Saved Recipe Detail View Controller-->
         <scene sceneID="rzg-4j-ZyT">
             <objects>
-                <viewController id="cKS-9L-keh" customClass="RecipeDetailViewController" customModule="ReadyRecipes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cKS-9L-keh" customClass="SavedRecipeDetailViewController" customModule="ReadyRecipes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yXi-ZJ-b34">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -789,13 +730,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7mm-ga-PjA">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="List ingredients here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7mm-ga-PjA">
                                 <rect key="frame" x="16" y="408" width="343" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="l3g-3Q-YR6"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -818,13 +758,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QMY-1k-GL0">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="List instructions here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QMY-1k-GL0">
                                 <rect key="frame" x="16" y="561.5" width="343" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="uE0-cl-DZI"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -851,108 +790,31 @@
                             <constraint firstItem="5gc-3g-lkC" firstAttribute="top" secondItem="7mm-ga-PjA" secondAttribute="bottom" constant="16" id="ml5-rK-qaK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fJY-QJ-WVX"/>
+                    <navigationItem key="navigationItem" id="fJY-QJ-WVX">
+                        <barButtonItem key="rightBarButtonItem" title="Add Recipe" id="QlN-A6-lpQ">
+                            <connections>
+                                <action selector="addRecipePressed:" destination="cKS-9L-keh" id="rVd-b5-rUN"/>
+                                <segue destination="PDB-hv-pqG" kind="unwind" unwindAction="undwindFromDetailWithSegue:" id="uIm-qM-DG3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addRecipeButton" destination="QlN-A6-lpQ" id="rG2-bS-Agu"/>
+                        <outlet property="ingredientsTextView" destination="7mm-ga-PjA" id="EJe-l4-DCc"/>
+                        <outlet property="instructionsTextView" destination="QMY-1k-GL0" id="I5K-42-nnB"/>
+                        <outlet property="nameLabel" destination="QVa-QT-NIF" id="dxb-CB-xaD"/>
+                        <outlet property="photoImageView" destination="394-Yl-cQI" id="vma-a5-ROC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oFv-Db-zxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="PDB-hv-pqG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4998" y="797"/>
-        </scene>
-        <!--Recipe Detail View Controller-->
-        <scene sceneID="LUB-2M-8i3">
-            <objects>
-                <viewController id="5M7-71-veF" customClass="RecipeDetailViewController" customModule="ReadyRecipes" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="03y-xp-qeP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="v99-pc-0VE">
-                                <rect key="frame" x="16" y="140" width="343" height="214.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="v99-pc-0VE" secondAttribute="height" multiplier="187:117" id="CGX-jv-b0O"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Name Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mcd-GV-ngA">
-                                <rect key="frame" x="16" y="60" width="343" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="zqx-jD-xTF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MyanmarSangamMN-Bold" family="Myanmar Sangam MN" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0OH-OQ-jyP">
-                                <rect key="frame" x="16" y="408" width="343" height="100"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Ziz-fy-W41"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ei-bu-nrx">
-                                <rect key="frame" x="16" y="370.5" width="155" height="21.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="155" id="HTx-de-Coo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P3-sM-OQU">
-                                <rect key="frame" x="16" y="524" width="155" height="21.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="155" id="6BX-CD-90t"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gde-iM-W8f">
-                                <rect key="frame" x="16" y="561.5" width="343" height="100"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="wFT-Iy-xPi"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="rTo-9s-X0c"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="1Ei-bu-nrx" firstAttribute="leading" secondItem="rTo-9s-X0c" secondAttribute="leading" constant="16" id="2tN-aW-b94"/>
-                            <constraint firstItem="rTo-9s-X0c" firstAttribute="trailing" secondItem="gde-iM-W8f" secondAttribute="trailing" constant="16" id="73s-sc-ZkO"/>
-                            <constraint firstItem="0OH-OQ-jyP" firstAttribute="leading" secondItem="rTo-9s-X0c" secondAttribute="leading" constant="16" id="BUD-iB-f3i"/>
-                            <constraint firstItem="6P3-sM-OQU" firstAttribute="top" secondItem="0OH-OQ-jyP" secondAttribute="bottom" constant="16" id="CXk-WR-CWA"/>
-                            <constraint firstItem="6P3-sM-OQU" firstAttribute="leading" secondItem="rTo-9s-X0c" secondAttribute="leading" constant="16" id="Dj3-Jk-4YV"/>
-                            <constraint firstItem="rTo-9s-X0c" firstAttribute="trailing" secondItem="v99-pc-0VE" secondAttribute="trailing" constant="16" id="KG5-oF-ZD7"/>
-                            <constraint firstItem="0OH-OQ-jyP" firstAttribute="top" secondItem="1Ei-bu-nrx" secondAttribute="bottom" constant="16" id="MI7-vx-5wT"/>
-                            <constraint firstItem="v99-pc-0VE" firstAttribute="top" secondItem="Mcd-GV-ngA" secondAttribute="bottom" constant="16" id="Y35-Cz-b1n"/>
-                            <constraint firstItem="Mcd-GV-ngA" firstAttribute="top" secondItem="rTo-9s-X0c" secondAttribute="top" constant="16" id="Z2C-5j-f8P"/>
-                            <constraint firstItem="1Ei-bu-nrx" firstAttribute="top" secondItem="v99-pc-0VE" secondAttribute="bottom" constant="16" id="ac4-O7-Fpa"/>
-                            <constraint firstItem="gde-iM-W8f" firstAttribute="top" secondItem="6P3-sM-OQU" secondAttribute="bottom" constant="16" id="i5p-qm-Fqt"/>
-                            <constraint firstItem="rTo-9s-X0c" firstAttribute="trailing" secondItem="Mcd-GV-ngA" secondAttribute="trailing" constant="16" id="jmW-rs-Xzj"/>
-                            <constraint firstItem="Mcd-GV-ngA" firstAttribute="leading" secondItem="rTo-9s-X0c" secondAttribute="leading" constant="16" id="miV-Lb-wLb"/>
-                            <constraint firstItem="gde-iM-W8f" firstAttribute="leading" secondItem="rTo-9s-X0c" secondAttribute="leading" constant="16" id="qO9-TR-hlY"/>
-                            <constraint firstItem="rTo-9s-X0c" firstAttribute="trailing" secondItem="0OH-OQ-jyP" secondAttribute="trailing" constant="16" id="tp7-Zt-TLC"/>
-                            <constraint firstItem="v99-pc-0VE" firstAttribute="leading" secondItem="rTo-9s-X0c" secondAttribute="leading" constant="16" id="vVL-ni-EY5"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="g5h-ei-1PY">
-                        <barButtonItem key="rightBarButtonItem" title="Add Recipe" id="iDB-AG-cJN"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pvo-YY-i2Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6082" y="80"/>
+            <point key="canvasLocation" x="5121" y="797"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="QgK-44-URy"/>
+        <segue reference="5ME-oY-h8A"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="352" height="228"/>
