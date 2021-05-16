@@ -16,16 +16,17 @@ class CalendarViewController: UIViewController {
     var recipes: Recipes!
     var weekDay = ""
     var weeklyDictionary: [String: Recipe] = [:]
+    var photo: Photo!
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        loadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,36 +35,45 @@ class CalendarViewController: UIViewController {
         destination.weeklyDictionary = weeklyDictionary
        
         switch selectedIndexPath {
-        case IndexPath(index: 0):
+        case IndexPath(row: 0, section: 0):
             self.weekDay = daysOfTheWeek[0]
             destination.weekDay = weekDay
-        case IndexPath(index: 1):
+        case IndexPath(row: 1, section: 0):
             self.weekDay = daysOfTheWeek[1]
             destination.weekDay = weekDay
-        case IndexPath(index: 2):
+        case IndexPath(row: 2, section: 0):
             self.weekDay = daysOfTheWeek[2]
             destination.weekDay = weekDay
-        case IndexPath(index: 3):
+        case IndexPath(row: 3, section: 0):
             self.weekDay = daysOfTheWeek[3]
             destination.weekDay = weekDay
-        case IndexPath(index: 4):
+        case IndexPath(row: 4, section: 0):
             self.weekDay = daysOfTheWeek[4]
             destination.weekDay = weekDay
-        case IndexPath(index: 5):
+        case IndexPath(row: 5, section: 0):
             self.weekDay = daysOfTheWeek[5]
             destination.weekDay = weekDay
-        case IndexPath(index: 6):
+        case IndexPath(row: 6, section: 0):
             self.weekDay = daysOfTheWeek[6]
             destination.weekDay = weekDay
         default:
             print("ERROR: preparing for segue and assigning day of the week")
-//            destination.weekDay = "Sunday"
         }
-        
         
     }
 
- 
+    func loadData() {
+        let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let documentURL = directoryURL.appendingPathComponent("weeklyDictionary").appendingPathExtension("json")
+        guard let data = try? Data(contentsOf: documentURL) else {return}
+        let jsonDecoder = JSONDecoder()
+        do {
+            weeklyDictionary = try jsonDecoder.decode(Dictionary.self, from: data)
+            tableView.reloadData()
+        } catch {
+            print("ERROR: Could not load data")
+        }
+    }
 
 }
 
@@ -74,8 +84,17 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeeklyCell", for: indexPath) as! CalendarCell
-        cell.recipeNameLabel?.text = weeklyDictionary[daysOfTheWeek[indexPath.row]]?.name
+       
+        if weeklyDictionary[daysOfTheWeek[indexPath.row]]?.name == nil {
+            cell.recipeNameLabel?.text = "Click to add recipe"
+        } else {
+            cell.recipeNameLabel?.text = weeklyDictionary[daysOfTheWeek[indexPath.row]]?.name
+        }
+       
+        cell.photoImageView?.image = photo?.image
         cell.dayOfWeekLabel?.text = daysOfTheWeek[indexPath.row]
+        
+        
         return cell
     }
     

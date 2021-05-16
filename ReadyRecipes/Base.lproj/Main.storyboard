@@ -119,9 +119,12 @@
                                                     <rect key="frame" x="242" y="15" width="113" height="70"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXc-Xz-eId">
-                                                    <rect key="frame" x="16" y="58" width="98" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rXc-Xz-eId">
+                                                    <rect key="frame" x="16" y="57" width="150" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="DkG-ly-YRD"/>
+                                                        <constraint firstAttribute="width" constant="150" id="R4x-7S-VEe"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="MyanmarSangamMN" family="Myanmar Sangam MN" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -140,6 +143,8 @@
                                             <constraints>
                                                 <constraint firstItem="fvw-8W-kdg" firstAttribute="top" secondItem="u7O-fg-CtJ" secondAttribute="topMargin" constant="8" id="PlD-gr-l02"/>
                                                 <constraint firstItem="fvw-8W-kdg" firstAttribute="leading" secondItem="u7O-fg-CtJ" secondAttribute="leadingMargin" id="Qwj-Tg-hOb"/>
+                                                <constraint firstItem="rXc-Xz-eId" firstAttribute="top" secondItem="fvw-8W-kdg" secondAttribute="bottom" constant="8" id="dFA-hb-U6Z"/>
+                                                <constraint firstItem="rXc-Xz-eId" firstAttribute="leading" secondItem="u7O-fg-CtJ" secondAttribute="leading" constant="16" id="ySl-PB-eX3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -184,6 +189,9 @@
                                     <segment title="A-Z"/>
                                     <segment title="Z-A"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortSegmentedControl:" destination="BQc-Hl-6PX" eventType="valueChanged" id="8d7-UT-v6F"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dWV-wu-jQP">
                                 <rect key="frame" x="0.0" y="88" width="414" height="719"/>
@@ -711,13 +719,11 @@
                     <navigationItem key="navigationItem" id="fJY-QJ-WVX">
                         <barButtonItem key="rightBarButtonItem" title="Add Recipe" id="QlN-A6-lpQ">
                             <connections>
-                                <action selector="addRecipePressed:" destination="cKS-9L-keh" id="rVd-b5-rUN"/>
-                                <segue destination="PDB-hv-pqG" kind="unwind" unwindAction="undwindFromDetailWithSegue:" id="uIm-qM-DG3"/>
+                                <segue destination="mPj-d4-FJQ" kind="show" identifier="ReturnToCalendar" id="mhA-ad-n77"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addRecipeButton" destination="QlN-A6-lpQ" id="rG2-bS-Agu"/>
                         <outlet property="ingredientsTextView" destination="7mm-ga-PjA" id="EJe-l4-DCc"/>
                         <outlet property="instructionsTextView" destination="QMY-1k-GL0" id="I5K-42-nnB"/>
                         <outlet property="nameLabel" destination="QVa-QT-NIF" id="dxb-CB-xaD"/>
@@ -725,13 +731,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oFv-Db-zxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="PDB-hv-pqG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3886" y="797"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Q9g-xf-wRP"/>
+        <segue reference="mhA-ad-n77"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="352" height="228"/>

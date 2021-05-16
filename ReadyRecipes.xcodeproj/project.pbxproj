@@ -11,7 +11,6 @@
 		D13754742648A964001B00B9 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13754732648A964001B00B9 /* Photo.swift */; };
 		D13754942648AAB9001B00B9 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13754932648AAB9001B00B9 /* Recipes.swift */; };
 		D175DD432646F43B0028CA14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D175DD422646F43B0028CA14 /* GoogleService-Info.plist */; };
-		D18B9D43264AF823000C7A87 /* RecipeCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18B9D42264AF823000C7A87 /* RecipeCalendar.swift */; };
 		D18B9D49264B0C5B000C7A87 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18B9D48264B0C5B000C7A87 /* WelcomeViewController.swift */; };
 		D18C99FB26470669000C3BFE /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C99FA26470669000C3BFE /* RecipeListViewController.swift */; };
 		D18C9A2026470D73000C3BFE /* SavedRecipesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C9A1F26470D72000C3BFE /* SavedRecipesListViewController.swift */; };
@@ -38,7 +37,6 @@
 		D13754732648A964001B00B9 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		D13754932648AAB9001B00B9 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		D175DD422646F43B0028CA14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D18B9D42264AF823000C7A87 /* RecipeCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCalendar.swift; sourceTree = "<group>"; };
 		D18B9D48264B0C5B000C7A87 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		D18C99FA26470669000C3BFE /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		D18C9A1F26470D72000C3BFE /* SavedRecipesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesListViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 				D1D9297B2646EFFC009C500F /* SceneDelegate.swift */,
 				D18C9A2326470EC5000C3BFE /* Recipe.swift */,
 				D13754932648AAB9001B00B9 /* Recipes.swift */,
-				D18B9D42264AF823000C7A87 /* RecipeCalendar.swift */,
 				D13754732648A964001B00B9 /* Photo.swift */,
 				D18B9D48264B0C5B000C7A87 /* WelcomeViewController.swift */,
 				D1D9297D2646EFFC009C500F /* LoginViewController.swift */,
@@ -273,7 +270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D13754742648A964001B00B9 /* Photo.swift in Sources */,
-				D18B9D43264AF823000C7A87 /* RecipeCalendar.swift in Sources */,
 				D18C99FB26470669000C3BFE /* RecipeListViewController.swift in Sources */,
 				D1ECB426265185C800FB3CC6 /* UIViewController+alert.swift in Sources */,
 				D1D9297E2646EFFC009C500F /* LoginViewController.swift in Sources */,

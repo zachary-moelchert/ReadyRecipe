@@ -14,7 +14,6 @@ class PhotoViewController: UIViewController {
 
     var photo: Photo!
     var recipe: Recipe!
-    var recipeName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +32,19 @@ class PhotoViewController: UIViewController {
         updateUserInterface()
     }
     
+
     func updateUserInterface() {
         foodNameLabel.text = recipe.name
         photoImageView.image = photo.image
         
-//        guard let url = URL(string: photo.photoURL) else {
-//            // Then this must be a mew image -- get the image from the photo.image passed in rather than from the url
-//            photoImageView.image = photo.image
-//            return
-//        }
-//        photoImageView.sd_imageTransition = .fade
-//        photoImageView.sd_imageTransition?.duration = 0.5
-//        photoImageView.sd_setImage(with: url)
+        guard let url = URL(string: photo.photoURL) else {
+            // Then this must be a new image -- get the image from the photo.image passed in rather than from the url
+            photoImageView.image = photo.image
+            return
+        }
+        photoImageView.sd_imageTransition = .fade
+        photoImageView.sd_imageTransition?.duration = 0.5
+        photoImageView.sd_setImage(with: url)
     }
     
     func updateFromUserInterface() {

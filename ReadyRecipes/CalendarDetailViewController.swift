@@ -18,12 +18,16 @@ class CalendarDetailViewController: UIViewController {
     var recipe: Recipe!
     var weekDay: String!
     var weeklyDictionary: [String: Recipe] = [:]
+    var photo: Photo!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if recipe == nil {
             recipe = Recipe()
+        }
+        if photo == nil {
+            photo = Photo()
         }
         
         // hide keyboard if we tap outside of a field
@@ -38,9 +42,10 @@ class CalendarDetailViewController: UIViewController {
     
     func updateUserInterface() {
 //        self.recipe = weeklyDictionary[weekDay] ?? Recipe()
-        nameLabel?.text = recipe.name
-        ingredientsTextView?.text = recipe.ingredients
-        instructionsTextView?.text = recipe.instructions
+        nameLabel?.text = weeklyDictionary[weekDay]?.name
+        ingredientsTextView?.text =  weeklyDictionary[weekDay]?.ingredients
+        instructionsTextView?.text =  weeklyDictionary[weekDay]?.instructions
+//        photoImageView?.image = weeklyDictionary[weekDay]?.
     }
     
     func updateFromUserInterface() {

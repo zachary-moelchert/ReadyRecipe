@@ -13,10 +13,11 @@ class Recipe: Codable {
     var ingredients: String
     var instructions: String
     var recipeUserID: String
-//    var posterUserID: String   ------ is this the same as recipeUserID ???
+//    var posterUserID: String 
     var documentID: String
     var rating: Int
     var saved: Bool
+//    var photo: UIImage
     
     
     var dictionary: [String: Any] {
@@ -31,6 +32,7 @@ class Recipe: Codable {
         self.recipeUserID = recipeUserID
         self.documentID = documentID
         self.saved = saved
+//        self.photo = photo
     }
     
     convenience init() {
@@ -48,6 +50,7 @@ class Recipe: Codable {
         let recipeUserID = dictionary["recipeUserID"] as! String? ?? ""
         let documentID = dictionary["documentID"] as! String? ?? ""
         let saved = dictionary["saved"] as! Bool? ?? false
+//        let photo = dictionary["photo"] as! UIImage? ?? UIImage()
         self.init(name: name, ingredients: ingredients, rating: rating, recipeUserID: recipeUserID, instructions: instructions, documentID: documentID, saved: saved)
     }
     
