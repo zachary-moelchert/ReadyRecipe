@@ -16,10 +16,10 @@ class SavedRecipeDetailViewController: UIViewController {
     @IBOutlet weak var addRecipeButton: UIBarButtonItem!
     
     
-    var weekDay = ""
+    var weekDay: String!
     var weeklyDictionary: [String: Recipe] = [:]
-
-    
+    var recipe: Recipe!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,14 +33,30 @@ class SavedRecipeDetailViewController: UIViewController {
 //            return
 //        }
         
+        
+        guard recipe != nil else {
+            print("ERROR: No recipe passed to SavedRecipeDetailViewController")
+            return
+        }
         print("------------- WEEKDAY = \(weekDay) -----------------")
 
+        updateUserInterface()
     }
+    
+    func updateUserInterface() {
+        nameLabel.text = recipe.name
+        instructionsTextView.text = recipe.instructions
+        ingredientsTextView.text = recipe.ingredients
+    }
+    
     
 
 
     @IBAction func addRecipePressed(_ sender: UIBarButtonItem) {
- 
+        
+        
+        
+        
     }
     
 }

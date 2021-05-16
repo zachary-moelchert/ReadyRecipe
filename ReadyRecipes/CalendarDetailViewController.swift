@@ -50,7 +50,7 @@ class CalendarDetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! SavedRecipesListViewController
+        let destination = segue.destination as! RecipeListViewController
         destination.weekDay = weekDay
         destination.weeklyDictionary = weeklyDictionary
     }

@@ -69,7 +69,7 @@ class SavedRecipesListViewController: UIViewController {
         }
     }
     
-    @IBAction func undwindFromDetail(segue: UIStoryboardSegue) {
+    @IBAction func unwindFromDetail(segue: UIStoryboardSegue) {
         // check identifier?
         let source = segue.source as! SavedRecipeDetailViewController
         weeklyDictionary = source.weeklyDictionary

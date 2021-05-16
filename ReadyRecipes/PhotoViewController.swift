@@ -25,6 +25,7 @@ class PhotoViewController: UIViewController {
         }
         
         guard photo != nil else {
+            photo = Photo()
             print("ERROR: No photo passed to PhotoViewController.swift")
             return
         }
@@ -36,14 +37,14 @@ class PhotoViewController: UIViewController {
         foodNameLabel.text = recipe.name
         photoImageView.image = photo.image
         
-        guard let url = URL(string: photo.photoURL) else {
-            // Then this must be a mew image -- get the image from the photo.image passed in rather than from the url
-            photoImageView.image = photo.image
-            return
-        }
-        photoImageView.sd_imageTransition = .fade
-        photoImageView.sd_imageTransition?.duration = 0.5
-        photoImageView.sd_setImage(with: url)
+//        guard let url = URL(string: photo.photoURL) else {
+//            // Then this must be a mew image -- get the image from the photo.image passed in rather than from the url
+//            photoImageView.image = photo.image
+//            return
+//        }
+//        photoImageView.sd_imageTransition = .fade
+//        photoImageView.sd_imageTransition?.duration = 0.5
+//        photoImageView.sd_setImage(with: url)
     }
     
     func updateFromUserInterface() {

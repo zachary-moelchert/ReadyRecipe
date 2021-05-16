@@ -9,7 +9,7 @@ import UIKit
 
 class CalendarViewController: UIViewController {
 
-    var dummyData = ["Recipe here", "Recipe here", "Recipe here", "Recipe here", "Recipe here", "Recipe here", "Recipe here"]
+//    var dummyData = ["Recipe here", "Recipe here", "Recipe here", "Recipe here", "Recipe here", "Recipe here", "Recipe here"]
     var daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
     var weeklyRecipeSchedule: [Recipe] = []
@@ -74,22 +74,22 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeeklyCell", for: indexPath) as! CalendarCell
-        cell.recipeNameLabel?.text = dummyData[indexPath.row]
+        cell.recipeNameLabel?.text = weeklyDictionary[daysOfTheWeek[indexPath.row]]?.name
         cell.dayOfWeekLabel?.text = daysOfTheWeek[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            dummyData.remove(at: indexPath.row)
+            recipes.recipeArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let itemToMove = dummyData[sourceIndexPath.row]
-        dummyData.remove(at: sourceIndexPath.row)
-        dummyData.insert(itemToMove, at: destinationIndexPath.row)
+        let itemToMove = recipes.recipeArray[sourceIndexPath.row]
+        recipes.recipeArray.remove(at: sourceIndexPath.row)
+        recipes.recipeArray.insert(itemToMove, at: destinationIndexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

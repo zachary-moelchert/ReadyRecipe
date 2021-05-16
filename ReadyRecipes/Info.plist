@@ -73,5 +73,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>ReadyRecipe will need access to your camera if you plan to add a photo.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>ReadyRecipe will need access to your photo library if you plan to add a photo.</string>
 </dict>
 </plist>

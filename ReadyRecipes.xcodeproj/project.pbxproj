@@ -28,6 +28,7 @@
 		D1D929812646EFFC009C500F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D9297F2646EFFC009C500F /* Main.storyboard */; };
 		D1D929832646EFFE009C500F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1D929822646EFFE009C500F /* Assets.xcassets */; };
 		D1D929862646EFFE009C500F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D929842646EFFE009C500F /* LaunchScreen.storyboard */; };
+		D1ECB426265185C800FB3CC6 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ECB425265185C800FB3CC6 /* UIViewController+alert.swift */; };
 		E28060D589C5C7F115D1B8D8 /* Pods_ReadyRecipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDE89D7C2C273D0AF73C1B0 /* Pods_ReadyRecipes.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		D1D929822646EFFE009C500F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1D929852646EFFE009C500F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1D929872646EFFE009C500F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1ECB425265185C800FB3CC6 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 		D3E7BE0A0C1D70F34BAD6D4B /* Pods-ReadyRecipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadyRecipes.release.xcconfig"; path = "Target Support Files/Pods-ReadyRecipes/Pods-ReadyRecipes.release.xcconfig"; sourceTree = "<group>"; };
 		EFDE89D7C2C273D0AF73C1B0 /* Pods_ReadyRecipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReadyRecipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -121,12 +123,13 @@
 				D18C99FA26470669000C3BFE /* RecipeListViewController.swift */,
 				D18C9A432647123E000C3BFE /* RecipeListCell.swift */,
 				D1958590264DA7AB00ECE939 /* RecipeDetailViewController.swift */,
-				D18C9A1F26470D72000C3BFE /* SavedRecipesListViewController.swift */,
 				D1958611264EBED400ECE939 /* SavedRecipeDetailViewController.swift */,
 				D18C9A81264713AE000C3BFE /* CalendarViewController.swift */,
 				D19585ED264EBD0E00ECE939 /* CalendarDetailViewController.swift */,
 				D18C9A8526471435000C3BFE /* CalendarCell.swift */,
 				D13754702648A638001B00B9 /* PhotoViewController.swift */,
+				D1ECB425265185C800FB3CC6 /* UIViewController+alert.swift */,
+				D18C9A1F26470D72000C3BFE /* SavedRecipesListViewController.swift */,
 				D1D9297F2646EFFC009C500F /* Main.storyboard */,
 				D1D929822646EFFE009C500F /* Assets.xcassets */,
 				D1D929842646EFFE009C500F /* LaunchScreen.storyboard */,
@@ -272,6 +275,7 @@
 				D13754742648A964001B00B9 /* Photo.swift in Sources */,
 				D18B9D43264AF823000C7A87 /* RecipeCalendar.swift in Sources */,
 				D18C99FB26470669000C3BFE /* RecipeListViewController.swift in Sources */,
+				D1ECB426265185C800FB3CC6 /* UIViewController+alert.swift in Sources */,
 				D1D9297E2646EFFC009C500F /* LoginViewController.swift in Sources */,
 				D18C9A2426470EC5000C3BFE /* Recipe.swift in Sources */,
 				D18C9A82264713AE000C3BFE /* CalendarViewController.swift in Sources */,
